@@ -4,6 +4,9 @@
   "version": "1.1",
   "description": "Shows eBay sold prices for the item you're viewing on eBay or Vinted",
   "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "host_permissions": [
     "https://www.ebay.co.uk/*",
     "https://www.ebay.com/*",

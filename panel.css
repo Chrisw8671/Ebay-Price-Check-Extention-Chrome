@@ -241,6 +241,12 @@
   padding: 0 0 4px;
 }
 
+.esp-query-note {
+  padding: 0 14px 8px;
+  font-size: 10px;
+  color: #888;
+}
+
 a.esp-sale-row {
   display: block;
   padding: 7px 14px;
