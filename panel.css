@@ -1,0 +1,331 @@
+/* eBay Sold Price Panel — panel.css */
+
+#esp-panel {
+  position: fixed;
+  top: 120px;
+  right: 0;
+  width: 280px;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -4px 4px 18px rgba(0,0,0,.12);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  z-index: 99999;
+  max-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow .15s;
+}
+
+#esp-panel.esp-collapsed {
+  max-height: 42px;
+}
+
+/* Header */
+#esp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 14px;
+  background: #f60;
+  border-radius: 10px 0 0 0;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+#esp-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: .01em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.esp-source-badge {
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(0,0,0,.18);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.esp-cond-badge {
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(255,255,255,.25);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+#esp-header-btns {
+  display: flex;
+  gap: 4px;
+}
+
+#esp-header-btns button {
+  background: rgba(255,255,255,.22);
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .1s;
+}
+#esp-header-btns button:hover {
+  background: rgba(255,255,255,.38);
+}
+
+/* Body */
+#esp-body {
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 transparent;
+}
+
+/* Loading */
+#esp-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  gap: 12px;
+  color: #666;
+  font-size: 12px;
+}
+
+.esp-spinner {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid #f0f0f0;
+  border-top-color: #f60;
+  border-radius: 50%;
+  animation: esp-spin .7s linear infinite;
+}
+
+@keyframes esp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+#esp-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  color: #b00;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Stats row */
+#esp-stats {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.esp-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 4px 10px;
+}
+
+.esp-stat-mid {
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+}
+
+.esp-stat-val {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.esp-stat-label {
+  font-size: 10px;
+  color: #888;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* Price range bar */
+#esp-range {
+  padding: 10px 14px 6px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.esp-range-bar {
+  position: relative;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: visible;
+  margin-bottom: 4px;
+}
+
+.esp-range-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #29b, #f60);
+  border-radius: 3px;
+}
+
+.esp-range-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 2.5px solid #f60;
+  border-radius: 50%;
+}
+
+.esp-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #888;
+}
+
+/* Recent sales header */
+#esp-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+#esp-list-header a {
+  color: #f60;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 11px;
+}
+#esp-list-header a:hover { text-decoration: underline; }
+
+/* Sales list */
+#esp-list {
+  padding: 0 0 4px;
+}
+
+a.esp-sale-row {
+  display: block;
+  padding: 7px 14px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #f7f7f7;
+  transition: background .1s;
+}
+a.esp-sale-row:hover {
+  background: #fff8f2;
+}
+
+.esp-sale-title {
+  font-size: 11.5px;
+  color: #1a1a1a;
+  line-height: 1.35;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.esp-sale-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.esp-sale-price {
+  font-weight: 700;
+  font-size: 13px;
+  color: #1a1a1a;
+}
+
+.esp-sale-date {
+  font-size: 10px;
+  color: #999;
+}
+
+/* Badges */
+.esp-badge {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.esp-badge-used {
+  background: #f5f0e8;
+  color: #7a6030;
+}
+.esp-badge-new {
+  background: #e8f5ee;
+  color: #1a7040;
+}
+
+.esp-empty {
+  padding: 14px;
+  font-size: 11.5px;
+  color: #999;
+  text-align: center;
+}
+
+/* Active listings footer */
+#esp-active-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px 11px;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+  border-radius: 0 0 0 10px;
+}
+
+#esp-active-label {
+  font-size: 11px;
+  color: #555;
+  font-weight: 600;
+}
+
+#esp-active-link {
+  font-size: 11px;
+  color: #f60;
+  text-decoration: none;
+}
+#esp-active-link:hover { text-decoration: underline; }

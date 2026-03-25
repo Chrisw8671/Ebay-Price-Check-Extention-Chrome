@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "eBay Sold Price Panel",
+  "version": "1.1",
+  "description": "Shows eBay sold prices for the item you're viewing on eBay or Vinted",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://www.ebay.co.uk/*",
+    "https://www.ebay.com/*",
+    "https://www.vinted.co.uk/*",
+    "https://www.vinted.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.ebay.co.uk/itm/*",
+        "https://www.ebay.com/itm/*",
+        "https://www.vinted.co.uk/items/*",
+        "https://www.vinted.com/items/*"
+      ],
+      "js": ["content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon.png",
+    "128": "icon128.png"
+  }
+}
